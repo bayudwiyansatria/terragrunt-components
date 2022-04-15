@@ -31,7 +31,7 @@ Put terragrunt component on your infrastructure as code repository.
 
 Assume:
 ```shell
-|-- bayudwiyansatria
+|-- infrastructure
 |   |-- terragrunt
 |   |   |-- components <- CLONE TERRAGRUNT COMPONENT HERE
 |   |   |   |-- kubernetes-dashboard
@@ -40,20 +40,48 @@ Assume:
 |   |   |   |-- metrics-server
 |   |   |   |   |-- provider.hcl
 |   |   |   |   `-- terragrunt.hcl
-|   |   |   |-- nginx-ingress-controller
-|   |   |   |   |-- provider.hcl
-|   |   |   |   `-- terragrunt.hcl
+|   |   |   `-- nginx-ingress-controller
+|   |   |       |-- provider.hcl
+|   |   |       `-- terragrunt.hcl
 |   |   |-- accounts
+|   |   |   `docker-desktop.yaml
 |   |   |-- _templates
+|   |   |   |-- backend-local.tpl
+|   |   |   `-- backend-tfc.tpl
 |   |   |-- live
+|   |   |   |-- bayudwiyansatria
+|   |   |   |   |-- docker-desktop
+|   |   |   |   |   |-- dev
+|   |   |   |   |   |   |-- metrics-server
+|   |   |   |   |   |   |   `-- terragrunt.hcl
+|   |   |   |   |   |   |-- kubernetes-dashboard
+|   |   |   |   |   |   |   `-- terragrunt.hcl
+|   |   |   |   |   |   `-- nginx-ingress-controller
+|   |   |   |   |   |       `-- terragrunt.hcl
+|   |   |   |   |   |-- stag
+|   |   |   |   |   `-- prod
+|   |   |   |   `-- aws
+|   |   |   |       |-- dev
+|   |   |   |       |   |-- metrics-server
+|   |   |   |       |   |   `-- terragrunt.hcl
+|   |   |   |       |   |-- kubernetes-dashboard
+|   |   |   |       |   |   `-- terragrunt.hcl
+|   |   |   |       |   `-- nginx-ingress-controller
+|   |   |   |       |       `-- terragrunt.hcl
+|   |   |   |       |-- stag
+|   |   |   |       `-- prod 
+|   |   |   `-- other-account
+|   |   |       |-- docker-desktop
+|   |   |       |   `-- prod
+|   |   |       `-- aws
 |   |   `-- terragrunt.hcl
 |   `-- terraform
 |       |-- metrics-server
 |       |   `-- main.tf
 |       |-- nginx-ingress-controller
 |       |   `-- main.tf
-|       |-- kubernetes-dashboard
-|       |   `-- main.tf
+|       `-- kubernetes-dashboard
+|           `-- main.tf
 |-- README.md
 |-- NOTICE
 |-- LICENSE
