@@ -18,4 +18,3 @@ generate "provider" {
     api_key = local.account.api_key,
   })
 }
-
